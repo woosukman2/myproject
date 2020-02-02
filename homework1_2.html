@@ -32,6 +32,10 @@
 		.comment {
 			color: blue;
 			font-weight: bold;
+			font-size:25px;
+		}
+		.smallfont{
+			font-size: 5px;
 		}
 	</style>
 
@@ -43,52 +47,52 @@
 		<div class="card">
 			<img class="card-img-top" src="C:\Users\gws20\Desktop\스파르타\homework\옹벽플러그.jpg" alt="Card image cap" width="1000" height="500" margin="100px">
 			<div class="card-body">
-				<h2>
-					스마트 수도임시마개
-				</h2> 
-				<p class="card-text">가격: 1,000,000,000원</p>
-				<p class="card-text comment">이 상품은 세계 최초로 개발된 IOT 스마트 누수감지시스템 제품입니다.</p>
+				<h2 class="comment">
+					스마트 수도임시마개  <span class="smallfont">가격:1,000,000,000원</span> </h2>
 
-				<h2>
-					주문하기
-				</h2> 
-				<form>
-					<div class="form-group">
-						<div class="col-auto">
-							<label for="inputEmail3" class="col-sm-2 col-form-label">주문자성함:</label>
-							<input type="text" class="form-control mb-2" id="inlineFormInput">
-						</div>
-						<div class="dropdown">
-							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="True">주문수량:
-							</button>
-							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="#">1개</a>
-								<a class="dropdown-item" href="#">2개</a>
-								<a class="dropdown-item" href="#">3개</a>
-								<a class="dropdown-item" href="#">4개</a>
-								<a class="dropdown-item" href="#">5개</a>
-								<a class="dropdown-item" href="#">6개</a>
+
+					<p class="card-text comment">이 상품은 세계 최초로 개발된 IOT 스마트 누수감지시스템 제품입니다.</p>
+
+					<h2>
+						주문하기
+					</h2> 
+					<form>
+						<div class="form-group">
+							<div class="col-auto" >
+								<label for="inputEmail3" class="col-sm-2 col-form-label">주문자성함:</label>
+								<input type="text" class="form-control mb-2" id="inlineFormInput">
+							</div>
+							<div class="dropdown">
+								<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="True">주문수량:
+								</button>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+									<a class="dropdown-item" href="#">1개</a>
+									<a class="dropdown-item" href="#">2개</a>
+									<a class="dropdown-item" href="#">3개</a>
+									<a class="dropdown-item" href="#">4개</a>
+									<a class="dropdown-item" href="#">5개</a>
+									<a class="dropdown-item" href="#">6개</a>
+								</div>
+							</div>
+							<div class="col-auto">
+								<label for="inputEmail3" class="col-sm-2 col-form-label">주소:</label>
+								<input type="text" class="form-control mb-1 id="inlineFormInput">
+							</div>
+							<div class="col-auto">
+								<label for="inputEmail3" class="col-sm-2 col-form-label">전화번호:</label>
+								<input type="text" class="form-control mb-2" id="inlineFormInput">
 							</div>
 						</div>
-						<div class="col-auto">
-							<label for="inputEmail3" class="col-sm-2 col-form-label">주소:</label>
-							<input type="text" class="form-control mb-2" id="inlineFormInput">
-						</div>
-						<div class="col-auto">
-							<label for="inputEmail3" class="col-sm-2 col-form-label">전화번호:</label>
-							<input type="text" class="form-control mb-2" id="inlineFormInput">
-						</div>
-					</div>
 
 
-					<button type="submit" class="btn btn-primary" style="text-align: center">주문하기</button>
-				</form>
+						<button type="submit" class="btn btn-primary" style="text-align: center">주문하기</button>
+					</form>
+
+				</div>
 
 			</div>
 
 		</div>
 
-	</div>
-
-</body>
-</html>
+	</body>
+	</html>
