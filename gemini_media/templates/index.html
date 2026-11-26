@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>제미나이 사진·동영상 생성기</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    body { font-family: sans-serif; max-width: 720px; margin: 30px auto; padding: 0 16px; }
+    .box { border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 24px; }
+    textarea { width: 100%; height: 70px; box-sizing: border-box; }
+    button { margin-top: 8px; padding: 8px 16px; }
+    img, video { max-width: 100%; margin-top: 12px; }
+    .status { color: #666; margin-top: 8px; }
+    small { color: #888; }
+  </style>
+  <script>
+    function generate(kind) {
+      const prompt = $("#" + kind + "-prompt").val();
+      const $status = $("#" + kind + "-status");
+      const $result = $("#" + kind + "-result");
+      $status.text(kind === "video" ? "동영상 생성 중... (1~6분 걸릴 수 있어요)" : "사진 생성 중...");
+      $result.empty();
+      $.ajax({
+        type: "POST",
+        url: "/api/" + kind,
+        data: { prompt: prompt },
+        success: function (res) {
+          $status.text(res.text || "완료!");
+          if (kind === "image") $result.append($("<img>").attr("src", res.url));
+          else $result.append($("<video controls autoplay>").attr("src", res.url));
+        },
+        error: function (xhr) {
+          const res = xhr.responseJSON || {};
+          $status.text("오류: " + (res.error || xhr.statusText));
+        }
+      });
+    }
+  </script>
+</head>
+<body>
+  <h1>제미나이 사진·동영상 생성기</h1>
+
+  <div class="box">
+    <h2>사진 생성 <small>({{ image_model }})</small></h2>
+    <textarea id="image-prompt" placeholder="예: 우주복을 입은 고양이가 달 위에서 사진 찍는 모습"></textarea>
+    <button onclick="generate('image')">사진 만들기</button>
+    <div class="status" id="image-status"></div>
+    <div id="image-result"></div>
+  </div>
+
+  <div class="box">
+    <h2>동영상 생성 <small>({{ video_model }})</small></h2>
+    <textarea id="video-prompt" placeholder="예: 해질녘 바닷가를 달리는 강아지, 시네마틱"></textarea>
+    <button onclick="generate('video')">동영상 만들기</button>
+    <div class="status" id="video-status"></div>
+    <div id="video-result"></div>
+  </div>
+</body>
+</html>
